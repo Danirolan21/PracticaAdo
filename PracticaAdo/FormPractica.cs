@@ -62,7 +62,7 @@ namespace Test
             this.txtimporte.Text = datos.Importe.ToString();
         }
 
-        private async void cmbclientes_SelectedIndexChanged(object sender, EventArgs e)
+        private async void CargarDatosCliente()
         {
             string empresa = this.cmbclientes.SelectedItem.ToString();
             this.lstpedidos.Items.Clear();
@@ -78,6 +78,11 @@ namespace Test
             }
         }
 
+        private async void cmbclientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.CargarDatosCliente();
+        }
+
         private async void btnnuevopedido_Click(object sender, EventArgs e)
         {
             int afectados = await this.repo.InsertPedidoAsync(this.txtcodigopedido.Text, this.cmbclientes.SelectedItem.ToString(), this.txtfechaentrega.Text, this.txtformaenvio.Text, this.txtimporte.Text);
@@ -88,6 +93,7 @@ namespace Test
         {
             int afectados = await this.repo.DeletePedidoAsync(this.txtcodigopedido.Text);
             MessageBox.Show("afectados" + afectados);
+            this.CargarDatosCliente();
         }
     }
 }
