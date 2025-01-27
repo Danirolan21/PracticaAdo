@@ -14,19 +14,41 @@ using PracticaAdo.Repository;
 
     //create procedure SP_ALL_CLIENTES
     //as
-    // select Empresa from clientes
+	   // select Empresa from clientes
     //go
 
     //create procedure SP_DATOS_CLIENTE
     //(@empresa nvarchar(50))
     //as
-    //	declare @codEmpresa nvarchar(50)
-    //	SELECT @codEmpresa = CodigoCliente FROM clientes WHERE Empresa = @empresa
-    //	SELECT cli.Empresa, cli.Contacto, cli.Cargo, cli.Ciudad, cli.Telefono, ped.CodigoPedido
-    //	FROM clientes cli
-    //	INNER JOIN pedidos ped
-    //	ON cli.CodigoCliente = ped.CodigoCliente
-    //	WHERE cli.CodigoCliente = @codEmpresa;
+	   // declare @codEmpresa nvarchar(50)
+	   // SELECT @codEmpresa = CodigoCliente FROM clientes WHERE Empresa = @empresa
+	   // SELECT cli.Empresa, cli.Contacto, cli.Cargo, cli.Ciudad, cli.Telefono, ped.CodigoPedido
+	   // FROM clientes cli
+	   // INNER JOIN pedidos ped
+	   // ON cli.CodigoCliente = ped.CodigoCliente
+	   // WHERE cli.CodigoCliente = @codEmpresa;
+    //go;
+
+    //create procedure SP_DATOS_PEDIDO
+    //(@CodigoPedido nvarchar(50))
+    //as
+	   // select * from pedidos where CodigoPedido = @CodigoPedido
+    //go
+
+    //create procedure SP_INSERT_PEDIDO
+    //(@CodigoPedido nvarchar(50),
+    //@CodigoCliente nvarchar(50),
+    //@FechaEntrega nvarchar(50),
+    //@FormaEnvio nvarchar(50),
+    //@Importe int)
+    //as
+	   // insert into pedidos values (@CodigoPedido, @CodigoCliente, @FechaEntrega, @FormaEnvio, @Importe)
+    //go
+
+    //create procedure SP_DELETE_PEDIDO
+    //(@CodigoPedido nvarchar(50))
+    //as
+	   // delete from pedidos where CodigoPedido = @CodigoPedido
     //go
 
 #endregion
